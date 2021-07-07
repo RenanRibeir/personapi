@@ -14,7 +14,6 @@ import java.util.List;
 @NoArgsConstructor
 public class Person {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
