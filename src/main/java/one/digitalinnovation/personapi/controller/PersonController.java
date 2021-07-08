@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/api/v1/people")
 public class PersonController {
@@ -37,6 +36,13 @@ public class PersonController {
     @GetMapping("/{id}")
     public PersonDTO findById(@PathVariable long id) throws PersonNotFoundException {
         return personService.findById(id);
+    }
+
+    @PutMapping("/{id}")
+    public MessageResponseDTO updateById(@PathVariable Long id,@RequestBody @Valid PersonDTO personDTO) throws PersonNotFoundException {
+
+        return personService.updateById(id,personDTO);
+
     }
 
     @DeleteMapping("/{id}")
